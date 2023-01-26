@@ -73,7 +73,7 @@ async def stop(client, m: Message):
             await calls.leave_group_call(chat_id)
             await remove_active_chat(chat_id)
             clear_queue(chat_id)
-            await m.reply_text(" 🦴 اެبشࢪ يحݪۅ تَم ۅكَفت اެݪاغِنية بَعد ؟..")
+            await m.reply_text("  اެبشࢪ يحݪۅ تَم ۅكَفت اެݪاغِنية بَعد ؟..")
         except Exception as e:
             traceback.print_exc()
             await m.reply_text(f"🚫 **error:**\n\n`{e}`")

@@ -11,20 +11,20 @@ BOT_TOKEN = getenv("BOT_TOKEN", "")
 SESSION_NAME = getenv("SESSION_NAME", "")
 
 # mandatory vars
-OWNER_USERNAME = getenv("OWNER_USERNAME", "rr8r9")
+OWNER_USERNAME = getenv("OWNER_USERNAME", "MR_X_N")
 ALIVE_NAME = getenv("ALIVE_NAME", "sonng")
 BOT_USERNAME = getenv("BOT_USERNAME", "")
-UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/X02lx/RrRRR")
+UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/Abdulrahmman8894/MY")
 UPSTREAM_BRANCH = getenv("UPSTREM_BRANCH", "main")
 DURATION_LIMIT = int(getenv("DURATION_LIMIT", "60"))
-GROUP_SUPPORT = getenv("GROUP_SUPPORT", "rr8r9")
-UPDATES_CHANNEL = getenv("UPDATES_CHANNEL", "xl444")
+GROUP_SUPPORT = getenv("GROUP_SUPPORT", "AzkarMusIim3")
+UPDATES_CHANNEL = getenv("UPDATES_CHANNEL", "AzkarMusIim")
 
 # database, decorators, handlers mandatory vars
 MONGODB_URL = getenv("MONGODB_URL", "mongodb+srv://veez:mega@cluster0.heqnd.mongodb.net/veez?retryWrites=true&w=majority")
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ ! . $").split())
-OWNER_ID = list(map(int, getenv("OWNER_ID", "1854384004").split()))
-SUDO_USERS = list(map(int, getenv("SUDO_USERS", "1854384004").split()))
+OWNER_ID = list(map(int, getenv("OWNER_ID", "5443938270").split()))
+SUDO_USERS = list(map(int, getenv("SUDO_USERS", "5490982823").split()))
 
 # image resources vars
 IMG_1 = getenv("IMG_1", "https://te.legra.ph/file/2a726c634dbc3b9e8f451.png")

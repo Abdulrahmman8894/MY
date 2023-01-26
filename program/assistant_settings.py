@@ -77,7 +77,7 @@ async def leave_chat(c :Client, m: Message):
             await user.leave_chat(chat_id)
             return await c.send_message(chat_id, "✅ وانيهم طالع وياه باي")
     except UserNotParticipant:
-        return await c.send_message(chat_id, "🦴 غادر منزمان لتلح")
+        return await c.send_message(chat_id, " غادر من زمان لتلح")
 
 
 @Client.on_message(command(["leaveall", f"leaveall@{BOT_USERNAME}"]) & ~filters.edited)
@@ -125,7 +125,7 @@ async def start_group_call(c: Client, m: Message):
                 random_id=user.rnd_id() // 9000000000,
             )
         )
-        await msg.edit_text("🦴 تَم فَتحت مَكَاެݪمَة صَعدۅ !")
+        await msg.edit_text(" تَم فَتحت مَكَاެݪمَة صَعدۅ !")
     except ChatAdminRequired:
         await msg.edit_text(
             "كمشرف في المجموعة مع صلاحية لاستخدام هذه الامر ، عليك رفع حساب المساعد :\n\n-›  ❤️‍🔥 الدردشة الصوتية"
@@ -151,7 +151,7 @@ async def stop_group_call(c: Client, m: Message):
                 call=group_call
             )
         )
-        await msg.edit_text("🦴 تَم اެݪانِهاء اެبشࢪ ")
+        await msg.edit_text(" تَم اެݪانِهاء اެبشࢪ ")
     except Exception as e:
         if "GROUPCALL_FORBIDDEN" in str(e):
             await msg.edit_text(

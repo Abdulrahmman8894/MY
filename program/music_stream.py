@@ -133,7 +133,7 @@ async def play_tg_file(c: Client, m: Message, replied: Message = None, link: str
                 photo=image,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 caption=f"-› **اެبشࢪ عيني ضفتها ݪݪانتضاࢪ -› ** `{pos}`\n\n"
-                        f"-› **اެݪاسم:** [{songname}]({link}) | `الاغنية`\n"
+                        f"-› **اެݪاسم:** [{songname}]({link}) | `العنوان`\n"
                         f"-› **اެݪمدةه:** `{duration}`\n"
                         f"-› **طݪب اެݪحݪۅ:** {requester}",
             )
@@ -173,7 +173,7 @@ async def play_tg_file(c: Client, m: Message, replied: Message = None, link: str
             except (NoActiveGroupCall, GroupCallNotFound):
                 await suhu.delete()
                 await remove_active_chat(chat_id)
-                await m.reply_text("🦴 شلون اشغل اغنية وماكو مكالمة بلكروب.\n\n-› اكتب .اصعد وحاول مره اخرى !")
+                await m.reply_text(" شلون اشغل اغنية وماكو مكالمة بلكروب.\n\n-› اكتب .اصعد وحاول مره اخرى !")
             except Exception as e:
                 LOGS.info(e)
     else:
@@ -182,7 +182,7 @@ async def play_tg_file(c: Client, m: Message, replied: Message = None, link: str
         )
 
 
-@Client.on_message(command(["شغل", f"ت"]) & other_filters)
+@Client.on_message(command(["شغل", f"مستر"]) & other_filters)
 @check_blacklist()
 @require_admin(permissions=["can_manage_voice_chats", "can_delete_messages", "can_invite_users"], self=True)
 async def audio_stream(c: Client, m: Message):
@@ -230,7 +230,7 @@ async def audio_stream(c: Client, m: Message):
         except Exception as e:
             LOGS.info(e)
             return await m.reply_text(
-                f"🦴 **فشل حساب المساعد في الإنضمام**\n\n**السبب**: `{e}`"
+                f" **فشل حساب المساعد في الإنضمام**\n\n**السبب**: `{e}`"
             )
     if replied:
         if replied.audio or replied.voice:
@@ -245,7 +245,7 @@ async def audio_stream(c: Client, m: Message):
                 query = m.text.split(None, 1)[1]
                 search = ytsearch(query)
                 if search == 0:
-                    await suhu.edit("لم يتم العثور على نتائج جرب اعطاء اسم الاغنية الكامل 🦴")
+                    await suhu.edit("لم يتم العثور على نتائج جرب اعطاء الاسم كامل ")
                 else:
                     songname = search[0]
                     title = search[0]
@@ -322,7 +322,7 @@ async def audio_stream(c: Client, m: Message):
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
             if search == 0:
-                await suhu.edit("لم يتم العثور على نتائج جرب اعطاء اسم الاغنية الكامل 🦴")
+                await suhu.edit("لم يتم العثور على نتائج جرب اعطاء الاسم الكامل ")
             else:
                 songname = search[0]
                 title = search[0]
@@ -346,7 +346,7 @@ async def audio_stream(c: Client, m: Message):
                         await m.reply_photo(
                             photo=image,
                             reply_markup=InlineKeyboardMarkup(buttons),
-                            caption=f"-› **اެبشࢪ عيني ضفتها ݪݪانتضاࢪ -› ** `{pos}`\n\n-› **اެݪاسم:** [{songname}]({url}) | `الاغنية`\n**-› اެݪمدةه:** `{duration}`\n-› **طݪب اެݪحݪۅ:** {requester}",
+                            caption=f"-› **اެبشࢪ عيني ضفتها ݪݪانتضاࢪ -› ** `{pos}`\n\n-› **اެݪاسم:** [{songname}]({url}) | `لعنوان`\n**-› اެݪمدةه:** `{duration}`\n-› **طݪب اެݪحݪۅ:** {requester}",
                         )
                         remove_if_exists(image)
                     else:
@@ -369,14 +369,14 @@ async def audio_stream(c: Client, m: Message):
                             await m.reply_photo(
                                 photo=image,
                                 reply_markup=InlineKeyboardMarkup(buttons),
-                                caption=f"-› **اެݪاسم:** [{songname}]({url}) | `الاغنية`\n**-› اެݪمدةه:** `{duration}`\n-› **طݪب اެݪحݪۅ:** {requester}",
+                                caption=f"-› **اެݪاسم:** [{songname}]({url}) | `العنوان`\n**-› اެݪمدةه:** `{duration}`\n-› **طݪب اެݪحݪۅ:** {requester}",
                             )
                             remove_if_exists(image)
                         except (NoActiveGroupCall, GroupCallNotFound):
                             await suhu.delete()
                             await remove_active_chat(chat_id)
-                            await m.reply_text("🦴 شلون اشغل وماكو مكالمة جماعية بلكروب.\n\n-› اكتب .اصعد وحاول مره أخرى")
+                            await m.reply_text(" شلون اشغل وماكو مكالمة جماعية بلكروب.\n\n-› اكتب .اصعد وحاول مره أخرى")
                         except NoAudioSourceFound:
                             await suhu.delete()
                             await remove_active_chat(chat_id)
-                            await m.reply_text("🦴 هذا المحتوى لايحتوي على صوت.\n\n-› رد على ملف صوتي")
+                            await m.reply_text(" هذا المحتوى لايحتوي على صوت.\n\n-› رد على ملف صوتي")

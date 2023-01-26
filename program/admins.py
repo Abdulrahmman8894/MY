@@ -95,7 +95,7 @@ async def pause(client, m: Message):
             await calls.pause_stream(chat_id)
             await music_off(chat_id)
             await m.reply_text(
-                "⏸ **تم إيقاف المسار مؤقتًا.**\n\n• **لاستمرار الاغنية اكتب**\n»-›  .استمرار"
+                "⏸ **تم إيقاف المسار مؤقتًا.**\n\n• **لاستمرار التشغيل اكتب**\n»-›  .استمرار"
             )
         except Exception as e:
             traceback.print_exc()
@@ -246,7 +246,7 @@ async def cbpause(_, query: CallbackQuery):
                 return
             await calls.pause_stream(chat_id)
             await music_off(chat_id)
-            await query.answer("⏸ توقفت الاغنية مؤقتًا !\n\n-›  لتشغيلها مره اخرى إنقر على زر استمرار", show_alert=True)
+            await query.answer("⏸ توقفت التشغيل مؤقتًا !\n\n-›  لتشغيلها مره اخرى إنقر على زر استمرار", show_alert=True)
         except Exception as e:
             traceback.print_exc()
             await query.edit_message_text(f"🚫 **error:**\n\n`{e}`", reply_markup=close_mark)
@@ -259,7 +259,7 @@ async def cbpause(_, query: CallbackQuery):
 async def cbresume(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 وخر ايدك لاتبعبص محد يكدر يدوس هنا بس الي عنده صلاحية المكالمات !", show_alert=True)
+        return await query.answer("💡 وخر ايدك محد يكدر يدوس هنا بس الي عنده صلاحية المكالمات !", show_alert=True)
     chat_id = query.message.chat.id
     if chat_id in QUEUE:
         try:
@@ -281,7 +281,7 @@ async def cbresume(_, query: CallbackQuery):
 async def cbstop(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 وخر ايدك لاتبعبص محد يكدر يدوس هنا بس الي عنده صلاحية المكالمات !", show_alert=True)
+        return await query.answer("💡 وخر ايدك محد يكدر يدوس هنا بس الي عنده صلاحية المكالمات !", show_alert=True)
     chat_id = query.message.chat.id
     if chat_id in QUEUE:
         try:
@@ -301,7 +301,7 @@ async def cbstop(_, query: CallbackQuery):
 async def cbmute(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 وخر ايدك لاتبعبص محد يكدر يدوس هنا بس الي عنده صلاحية المكالمات !", show_alert=True)
+        return await query.answer("💡 وخر ايدك محد يكدر يدوس هنا بس الي عنده صلاحية المكالمات !", show_alert=True)
     chat_id = query.message.chat.id
     if chat_id in QUEUE:
         try:
@@ -323,12 +323,12 @@ async def cbmute(_, query: CallbackQuery):
 async def cbunmute(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 وخر ايدك لاتبعبص محد يكدر يدوس هنا بس الي عنده صلاحية المكالمات !", show_alert=True)
+        return await query.answer("💡 وخر ايدك محد يكدر يدوس هنا بس الي عنده صلاحية المكالمات !", show_alert=True)
     chat_id = query.message.chat.id
     if chat_id in QUEUE:
         try:
             if await is_music_playing(chat_id):
-                await query.answer("ℹ️ تم تشغيل الاغنية بالفعل.", show_alert=True)
+                await query.answer("ℹ️ تم تشغيل بالفعل.", show_alert=True)
                 return
             await calls.unmute_stream(chat_id)
             await music_on(chat_id)
@@ -345,7 +345,7 @@ async def cbunmute(_, query: CallbackQuery):
 async def cbskip(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 وخر ايدك لاتبعبص محد يكدر يدوس هنا بس الي عنده صلاحية المكالمات !", show_alert=True)
+        return await query.answer("💡 وخر ايدك  محد يكدر يدوس هنا بس الي عنده صلاحية المكالمات !", show_alert=True)
     chat_id = query.message.chat.id
     user_id = query.from_user.id
     queue = await skip_current_song(chat_id)
@@ -356,7 +356,7 @@ async def cbskip(_, query: CallbackQuery):
     elif queue == 2:
         await query.answer("🗑️ تم مسح **الانتضار**\n\n» **والمساعد** غادر الدردشة الصوتية.", show_alert=True)
     else:
-        await query.answer("ابشر جاري الانتقال الى الاغنية الثانية..")
+        await query.answer("ابشر جاري الانتقال الى السورة الثانية..")
         await query.message.delete()
         buttons = stream_markup(user_id)
         requester = f"[{query.from_user.first_name}](tg://user?id={query.from_user.id})"

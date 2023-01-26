@@ -153,7 +153,7 @@ async def skip(c: Client, m: Message):
             chat_id,
             photo=image,
             reply_markup=InlineKeyboardMarkup(buttons),
-            caption=f"⏭ **اެبشࢪ يحݪۅ** تم اެݪتخطي اެݪى اݪمساࢪ اެݪتالي.\n\n❤️‍🔥 **اެݪاެسم:** [{queue[0]}]({queue[1]})\n❤️‍🔥 **اެݪدࢪدشةه:** `{chat_id}`\n🦴 **طݪب اެݪحݪۅ:** {requester}",
+            caption=f"⏭ **اެبشࢪ يحݪۅ** تم اެݪتخطي اެݪى اݪمساࢪ اެݪتالي.\n\n❤️‍🔥 **اެݪاެسم:** [{queue[0]}]({queue[1]})\n❤️‍🔥 **اެݪدࢪدشةه:** `{chat_id}`\n **طݪب اެݪحݪۅ:** {requester}",
         )
         remove_if_exists(image)
 
@@ -237,7 +237,7 @@ async def change_volume(c: Client, m: Message):
 async def cbpause(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 وخر ايدك لاتبعبص محد يكدر يدوس هنا بس الي عنده صلاحية المكالمات !", show_alert=True)
+        return await query.answer("💡 وخر ايدك محد يكدر يدوس هنا بس الي عنده صلاحية المكالمات !", show_alert=True)
     chat_id = query.message.chat.id
     if chat_id in QUEUE:
         try:
@@ -264,7 +264,7 @@ async def cbresume(_, query: CallbackQuery):
     if chat_id in QUEUE:
         try:
             if await is_music_playing(chat_id):
-                await query.answer("ℹ️ تم تشغيل الاغنية مرة اخرى بالفعل.", show_alert=True)
+                await query.answer("ℹ️ تم تشغيل مرة اخرى بالفعل.", show_alert=True)
                 return
             await calls.resume_stream(chat_id)
             await music_on(chat_id)

@@ -87,7 +87,7 @@ async def start_(c: Client, message: Message):
         f"""ههݪاެ حبيب {message.from_user.mention()} ❤️‍🔥\n
 اެناެ بَۅت بَمميࢪ࣪اެتَ متَعدَدةَ ݪتشغِيݪ اެݪاغاެنِي فَي اެݪمَجمَۅعاتَ 🥇.
 
--› MᥲᎥꪀƚᥲᎥꪀᥱძ ხy -› [S᥆ᥙrᥴᥱ Frᥱᥱძ᥆ꪔ](http://t.me/xl444)
+-› 𝒂𝒃𝒅𝒖𝒍𝒓𝒂𝒉𝒎𝒂𝒏 𝒑𝒚 ხy -› [𝐒𝐎𝐔𝐑𝐂𝐄 𝐌𝐑_𝐗 ✨🕊️](https://t.me/AzkarMusIim)
 """,
         reply_markup=InlineKeyboardMarkup(
             [
@@ -124,7 +124,7 @@ async def alive(c: Client, message: Message):
     text = f"**- تابع الاوامر في الاسفل ↓ **"
     await c.send_photo(
         chat_id,
-        photo=f"https://te.legra.ph/file/402c519808f75bd9b1803.jpg",
+        photo=f"https://telegra.ph/file/e5d1868afc2b95abff6bf.jpg",
         caption=text,
         reply_markup=buttons,
     )

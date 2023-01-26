@@ -196,7 +196,7 @@ async def play_tg_file(c: Client, m: Message, replied: Message = None, link: str
             except (NoActiveGroupCall, GroupCallNotFound):
                 await loser.delete()
                 await remove_active_chat(chat_id)
-                await m.reply_text("🦴 ماكو مكالمة شلون اشغل يلا اكتب.\n\n» هاي .اصعد وحاول مره اخرى !")
+                await m.reply_text(" ماكو مكالمة شلون اشغل يلا اكتب.\n\n» هاي .اصعد وحاول مره اخرى !")
             except Exception as e:
                 LOGS.info(f"[ERROR]: {e}")
     else:
@@ -253,7 +253,7 @@ async def video_stream(c: Client, m: Message):
         except Exception as e:
             LOGS.info(f"[ERROR]: {e}")
             return await m.reply_text(
-                f"🦴 **فشل المساعد في الانضمام**\n\n**السبب**: `{e}`"
+                f" **فشل المساعد في الانضمام**\n\n**السبب**: `{e}`"
             )
     if replied:
         if replied.video or replied.document:
@@ -270,7 +270,7 @@ async def video_stream(c: Client, m: Message):
                 search = ytsearch(query)
                 amaze = HighQualityVideo()
                 if search == 0:
-                    await loser.edit("لم يتم العثور على نتائج جرب اعطاء اسم الاغنية الكامل 🦴")
+                    await loser.edit("لم يتم العثور على نتائج جرب اعطاء اسم السورة كامله ")
                 else:
                     songname = search[0]
                     title = search[0]
@@ -324,15 +324,15 @@ async def video_stream(c: Client, m: Message):
                             except (NoActiveGroupCall, GroupCallNotFound):
                                 await loser.delete()
                                 await remove_active_chat(chat_id)
-                                await m.reply_text("🦴 ماكو مكالمة شلون اشغل يلا اكتب.\n\n» هاي .اصعد وحاول مره اخرى !")
+                                await m.reply_text(" ماكو مكالمة شلون اشغل يلا اكتب.\n\n» هاي .اصعد وحاول مره اخرى !")
                             except NoVideoSourceFound:
                                 await loser.delete()
                                 await remove_active_chat(chat_id)
-                                await m.reply_text("🦴 هذا المحتوى لايحتوي على صوت")
+                                await m.reply_text(" هذا المحتوى لايحتوي على صوت")
                             except NoAudioSourceFound:
                                 await loser.delete()
                                 await remove_active_chat(chat_id)
-                                await m.reply_text("🦴 هذا المحتوى لايحتوي على صوت")
+                                await m.reply_text(" هذا المحتوى لايحتوي على صوت")
 
     else:
         if len(m.command) < 2:
@@ -349,7 +349,7 @@ async def video_stream(c: Client, m: Message):
             search = ytsearch(query)
             amaze = HighQualityVideo()
             if search == 0:
-                await loser.edit("لم يتم العثور على نتائج جرب اعطاء اسم الاغنية الكامل 🦴")
+                await loser.edit("لم يتم العثور على نتائج جرب اعطاء اسم السورة كامله ")
             else:
                 songname = search[0]
                 title = search[0]
@@ -403,12 +403,12 @@ async def video_stream(c: Client, m: Message):
                         except (NoActiveGroupCall, GroupCallNotFound):
                             await loser.delete()
                             await remove_active_chat(chat_id)
-                            await m.reply_text("🦴 ماكو مكالمة شلون اشغل يلا اكتب.\n\n» هاي .اصعد وحاول مره اخرى !")
+                            await m.reply_text(" ماكو مكالمة شلون اشغل يلا اكتب.\n\n» هاي .اصعد وحاول مره اخرى !")
                         except NoVideoSourceFound:
                             await loser.delete()
                             await remove_active_chat(chat_id)
-                            await m.reply_text("🦴 هذا المحتوى لايحتوي على صوت")
+                            await m.reply_text(" هذا المحتوى لايحتوي على صوت")
                         except NoAudioSourceFound:
                             await loser.delete()
                             await remove_active_chat(chat_id)
-                            await m.reply_text("🦴 هذا المحتوى لايحتوي على صوت")
+                            await m.reply_text(" هذا المحتوى لايحتوي على صوت")
